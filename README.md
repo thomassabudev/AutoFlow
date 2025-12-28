@@ -1,72 +1,50 @@
-# ⚡ AutoFlow – Web Automation Platform
+⚡ AutoFlow – Web Automation Learning Project
 
-AutoFlow is a modern web automation platform that connects a clean React-based user interface with powerful backend automation using **n8n**.  
-Users can trigger workflows like data logging and notifications directly from the web UI with real-time feedback.
+AutoFlow is a web automation project built as part of my BCA learning.
+The goal of this project was to understand how a web UI can trigger backend automation workflows.
 
----
+Users submit basic data from a web form, which is then processed using n8n and stored in Google Sheets.
 
-## 🚀 Features
+🚀 What This Project Does
+- Takes user input (Name, Email, Task) from a web UI
+- Sends the data to an n8n webhook
+- n8n processes the data and adds a timestamp
+- Data is stored in Google Sheets
+- UI shows success or error feedback
 
-- 🎨 **Modern UI** – Glassmorphism-style React interface
-- 🤖 **Automation Engine** – Powered by n8n workflows
-- 📄 **Google Sheets Integration** – Stores user submissions in real time
-- 🔐 **Secure Configuration** – Webhook URLs managed via environment variables
-- ⚡ **Instant Feedback** – Success/error responses shown in UI
+🛠️ Tech Stack
+Frontend: React.js
+Styling: CSS / Tailwind CSS
+Automation: n8n
+Data Storage: Google Sheets
+API Communication: REST (Axios)
 
----
+🧠 What I Learned
+- How webhook-based automation works
+- How to connect a React frontend with n8n workflows
+- Handling API responses and errors in the UI
+- Managing environment variables securely
 
-## 🛠️ Tech Stack
+⚠️ Notes
+- This is a learning project, not a production application
+- Webhook URLs are stored using environment variables
+- The project helped me understand automation and system integration
 
-| Layer        | Technology            |
-|-------------|-----------------------|
-| Frontend    | React.js              |
-| Styling     | CSS / Tailwind CSS    |
-| Automation  | n8n                   |
-| Data Store  | Google Sheets         |
-| API         | REST (Axios)          |
+💻 Setup (For Learning)
+1. Clone the repository
+   git clone https://github.com/Thomassabu166/AutoFlow.git
 
----
+2. Navigate to client folder
+   cd AutoFlow/client
 
-## 🔄 System Architecture
+3. Install dependencies
+   npm install
 
-1. User submits Name, Email, and Task from the UI  
-2. React sends a POST request to the n8n webhook  
-3. n8n processes the data and generates a timestamp  
-4. Data is appended to Google Sheets  
-5. Success response is sent back to the UI  
+4. Create a .env file and add required variables
 
+5. Start the application
+   npm start
 
-## 💻 Installation & Setup
-
-### 1️⃣ Clone the repository
-
-git clone https://github.com/Thomassabu166/AutoFlow.git
-cd AutoFlow/client
-
-2️⃣ Install dependencies
-npm install
-3️⃣ Setup environment variables
-Create a .env file inside the client folder:
-
-4️⃣ Run the project
-bash
-Copy code
-npm start
-The application will run at:
-
-📁 Project Structure
-Copy code
-AutoFlow
-├── client   # React frontend
-└── server   # Backend / automation configs (if applicable)
-
-
-👨‍💻 Author
-
-Thomas Sabu
-Full Stack Developer
-
-
-🛡️ License
-
-This project is licensed under the MIT License.
+👤 Author
+Thomas Sabu  
+BCA Student | Aspiring Software Developer
