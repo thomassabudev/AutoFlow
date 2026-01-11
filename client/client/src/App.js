@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 
-import logo from './my-logo.png'; 
+import logo from './my-logo.png';
 
 function App() {
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     task: ''
   });
 
-  const [status, setStatus] = useState(""); 
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,66 +20,66 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Processing... ⏳");
+    setStatus({ type: "loading", text: "Processing Automation... ⚡" });
 
     try {
       const response = await axios.post('http://localhost:5000/api/trigger', formData);
       console.log(response.data);
-      setStatus("✅ Success! Automation Started.");
+      setStatus({ type: "success", text: "✅ Workflow Executed Successfully!" });
     } catch (error) {
       console.error(error);
-      setStatus("❌ Error! Check Backend connection.");
+      setStatus({ type: "error", text: "❌ Connection Failed. Is Server Running?" });
     }
   };
 
   return (
     <div className="app-container">
       <div className="card">
-        <img 
-          src={logo} 
-          alt="Logo" 
-          style={{ width: '100px', height: 'auto', marginBottom: '15px' }} 
+        <img
+          src={logo}
+          alt="AutoFlow Logo"
+          style={{ width: '100px', height: 'auto', marginBottom: '10px', filter: 'drop-shadow(0 0 15px rgba(0,242,255,0.6))' }}
         />
-        <h1>⚡ AutoFlow</h1>
-        <p>Web Automation Platform</p>
+        <h1>AutoFlow</h1>
+        <p>Intelligent Automation Hub</p>
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <label>User Name</label>
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Enter your name" 
-              onChange={handleChange} 
-              required 
+            <label>User Identity</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your full name"
+              onChange={handleChange}
+              required
             />
           </div>
 
           <div className="input-group">
-            <label>Email Address</label>
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="name@example.com" 
-              onChange={handleChange} 
-              required 
+            <label>Contact Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="name@example.com"
+              onChange={handleChange}
+              required
             />
           </div>
 
           <div className="input-group">
-            <label>Task Description</label>
-            <textarea 
-              name="task" 
-              placeholder="What should the automation do?" 
-              onChange={handleChange} 
-              required 
+            <label>Task Parameter</label>
+            <textarea
+              name="task"
+              placeholder="Define your automation task..."
+              onChange={handleChange}
+              required
             />
           </div>
 
-          <button type="submit" className="btn">Run Automation 🚀</button>
+          <button type="submit" className="btn">Initiate Workflow 🚀</button>
         </form>
 
-        {status && <p className="status-msg">{status}</p>}
+        {status && <div className={`status-msg ${status.type}`}>{status.text}</div>}
       </div>
     </div>
   );
