@@ -1,16 +1,16 @@
 const express = require('express');
-const axios = require('axios'); // n8n-ലേക്ക് വിളിക്കാൻ
-const cors = require('cors');   // React കണക്ട് ചെയ്യാൻ
+const axios = require('axios');
+const cors = require('cors');
 
 const app = express();
 
 // Middleware
 app.use(cors());
-app.use(express.json()); // വരുന്ന ഡാറ്റ JSON ആയി വായിക്കാൻ
+app.use(express.json());
 
 // ----------------------------------------------------
-// REPLACE THIS WITH YOUR N8N TEST URL
-// (ഇന്നലെ n8n-ൽ നിന്ന് കിട്ടിയ ലിങ്ക് ഇവിടെ ഇടുക)
+// N8N WEBHOOK URL (Production)
+// ----------------------------------------------------
 const N8N_WEBHOOK_URL = "http://localhost:5678/webhook/autoflow";
 // ----------------------------------------------------
 
